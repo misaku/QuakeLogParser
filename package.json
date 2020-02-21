@@ -7,13 +7,28 @@
   "author": "Michel dos Santos Kuguio <michel.kuguio@gmail.com>",
   "license": "MIT",
   "private": false,
-  "dependencies": {},
+  "scripts": {
+    "start": "nodemon --exec babel-node index.js ",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.8.3",
+    "@hapi/hapi": "^19.1.1",
+    "lodash": "^4.17.15"
+  },
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.4",
+    "@babel/node": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-prettier": "^3.1.2",
+    "filter-files": "^0.4.0",
+    "is-directory": "^0.3.1",
+    "nodemon": "^2.0.2",
     "prettier": "^1.19.1"
   }
 }
