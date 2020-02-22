@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/desafio.iml" filepath="$PROJECT_DIR$/.idea/desafio.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/QuakeLogParser.iml" filepath="$PROJECT_DIR$/.idea/QuakeLogParser.iml" />
     </modules>
   </component>
 </project>

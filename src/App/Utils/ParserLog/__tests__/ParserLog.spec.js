@@ -6,7 +6,7 @@ describe('Unit Test of ParserLog', () => {
   let file = '';
   beforeAll(async () => {
     const read = util.promisify(fs.readFile);
-    file = await read('src/games.log', 'utf8');
+    file = await read('src/data/games.log', 'utf8');
   });
   it('chek if set file', async () => {
     const Parser = new ParserLog(file);

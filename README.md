@@ -24,7 +24,7 @@ A estrutura do projeto foi pensada para trabalhar com modularização de compone
 
 Cada módulo tem sua responsabilidade sua rota e sua regra de negócio. Os arquivos de configuração de padronização do projeto ficam fora da pasta `src` e o core da aplicação ficam na pasta `App`
 ```
-desafio/
+QuakeLogParser/
 ├── src/
 │   ├── App/
 │   │   │── Modules/
