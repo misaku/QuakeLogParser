@@ -1,6 +1,8 @@
 import Business from './MainBusiness';
+
 class MainCrontroller {
-  store (request, h) {
+  store(request, h) {
+
     return Business.store();
   }
 }

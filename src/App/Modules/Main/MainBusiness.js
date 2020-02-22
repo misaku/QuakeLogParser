@@ -1,14 +1,12 @@
-import fs from "fs";
+import fs from 'fs';
+import util from 'util';
 import ParserLog from '../../Utils/ParserLog';
-import util from "util";
 
 class MainBusiness {
-  async store(props) {
+  async store() {
     const read = util.promisify(fs.readFile);
-    const file = await read('src/games.log', 'utf8');
-    const Parser = new ParserLog(file).output;
-
-    return Parser;
+    const file = await read('src/games.log');
+    return new ParserLog(file).output;
   }
 }
 export default new MainBusiness();

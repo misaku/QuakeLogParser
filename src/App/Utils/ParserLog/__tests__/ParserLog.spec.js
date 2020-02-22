@@ -22,7 +22,7 @@ describe('Unit Test of ParserLog', () => {
     expect(ByRound[0]).toHaveProperty('players');
   });
   it('chek if get Players', async () => {
-    let data = [
+    const data = [
       '\\sv_floodProtect\\1\\sv_maxPing\\0\\sv_minPing\\0\\sv_maxRate\\10000\\sv_minRate\\0\\sv_hostname\\Code Miner Server\\g_gametype\\0\\sv_privateClients\\2\\sv_maxclients\\16\\sv_allowDownload\\0\\bot_minplayers\\0\\dmflags\\0\\fraglimit\\20\\timelimit\\15\\g_maxGameClients\\0\\capturelimit\\8\\version\\ioq3 1.36 linux-x86_64 Apr 12 2009\\protocol\\68\\mapname\\q3dm17\\gamename\\baseq3\\g_needpass\\0',
       '20:38 ClientConnect: 2',
       '20:38 ClientUserinfoChanged: 2 n\\Isgalamido\\t\\0\\model\\uriel/zael\\hmodel\\uriel/zael\\g_redteam\\\\g_blueteam\\\\c1\\5\\c2\\5\\hc\\100\\w\\0\\l\\0\\tt\\0\\tl\\0',
@@ -113,13 +113,13 @@ describe('Unit Test of ParserLog', () => {
     ];
     const Parser = new ParserLog(file);
     const Players = Parser.findPlayers(data);
-    expect(Players.length).toBe(3);
+    expect(Players).toHaveLength(3);
     expect(Players[0]).toBe('Isgalamido');
     expect(Players[1]).toBe('Dono da Bola');
     expect(Players[2]).toBe('Mocinha');
   });
   it('get line has kill', () => {
-    let data = [
+    const data = [
       '\\sv_floodProtect\\1\\sv_maxPing\\0\\sv_minPing\\0\\sv_maxRate\\10000\\sv_minRate\\0\\sv_hostname\\Code Miner Server\\g_gametype\\0\\sv_privateClients\\2\\sv_maxclients\\16\\sv_allowDownload\\0\\bot_minplayers\\0\\dmflags\\0\\fraglimit\\20\\timelimit\\15\\g_maxGameClients\\0\\capturelimit\\8\\version\\ioq3 1.36 linux-x86_64 Apr 12 2009\\protocol\\68\\mapname\\q3dm17\\gamename\\baseq3\\g_needpass\\0',
       '20:38 ClientConnect: 2',
       '20:38 ClientUserinfoChanged: 2 n\\Isgalamido\\t\\0\\model\\uriel/zael\\hmodel\\uriel/zael\\g_redteam\\\\g_blueteam\\\\c1\\5\\c2\\5\\hc\\100\\w\\0\\l\\0\\tt\\0\\tl\\0',
@@ -210,10 +210,10 @@ describe('Unit Test of ParserLog', () => {
     ];
     const Parser = new ParserLog(file);
     const Kills = Parser.findLineHasKill(data);
-    expect(Kills.length).toBe(11);
+    expect(Kills).toHaveLength(11);
   });
   it('counts Die', () => {
-    let data = [
+    const data = [
       '1:08 Kill: 3 2 6: Isgalamido killed Mocinha by MOD_ROCKET',
       '1:26 Kill: 1022 4 22: <world> killed Zeh by MOD_TRIGGER_HURT',
       '1:32 Kill: 1022 4 22: <world> killed Zeh by MOD_TRIGGER_HURT',
@@ -224,7 +224,7 @@ describe('Unit Test of ParserLog', () => {
     expect(total).toEqual(2);
   });
   it('count kills', () => {
-    let data = [
+    const data = [
       '1:08 Kill: 3 2 6: Isgalamido killed Mocinha by MOD_ROCKET',
       '1:26 Kill: 1022 4 22: <world> killed Zeh by MOD_TRIGGER_HURT',
       '1:32 Kill: 1022 4 22: <world> killed Zeh by MOD_TRIGGER_HURT',
@@ -235,13 +235,13 @@ describe('Unit Test of ParserLog', () => {
     expect(total).toEqual(1);
   });
   it('make kills', () => {
-    let data = [
+    const data = [
       '1:08 Kill: 3 2 6: Isgalamido killed Mocinha by MOD_ROCKET',
       '1:26 Kill: 1022 4 22: <world> killed Zeh by MOD_TRIGGER_HURT',
       '1:32 Kill: 1022 4 22: <world> killed Zeh by MOD_TRIGGER_HURT',
       '1:41 Kill: 1022 2 19: <world> killed Dono da Bola by MOD_FALLING',
     ];
-    let players = ['Dono da Bola', 'Mocinha', 'Isgalamido', 'Zeh'];
+    const players = ['Dono da Bola', 'Mocinha', 'Isgalamido', 'Zeh'];
     const Parser = new ParserLog(file);
     const Kills = Parser.makeKills(data, players);
     expect(Kills).toHaveProperty('total_kills', 4);

@@ -1,7 +1,17 @@
 import Controller from './MainCrontroller';
-export default (server)=>{
-  server.route({
+
+export default [
+  {
     method: 'GET',
     path: '/',
-    handler:Controller.store})
-};
+    options: {
+      handler: Controller.store,
+      description: 'Listar',
+      notes: 'Retorna rota com todos os registros',
+      tags: ['api'], // ADD THIS TAG
+      validate: {
+
+      }
+    },
+  }
+];
