@@ -5,7 +5,7 @@ import ParserLog from '../../Utils/ParserLog';
 class MainBusiness {
   async store() {
     const read = util.promisify(fs.readFile);
-    const file = await read('src/games.log');
+    const file = await read('src/games.log', 'utf8');
     return new ParserLog(file).output;
   }
 }
