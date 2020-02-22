@@ -15,9 +15,24 @@ class MainDAO {
 
   store(args = null) {
     if (args) {
-      const newData = Array.from(this.data);
-      return newData.filter(line => (line.players === args));
+      const newData = Object.entries(this.data);
+      return newData.filter(arr => {
+        const line = arr[1];
+        let cond = true;
+        args.forEach(player => {
+          if (!line.players.includes(player))
+            cond = false;
+        });
+        return cond;
+      }).reduce((accum, [k, v]) => {
+        accum[k] = v;
+        return accum;
+      }, {});
+
     }
     return this.data;
   }
+
 }
+
+export default new MainDAO();

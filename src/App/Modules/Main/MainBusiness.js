@@ -1,12 +1,10 @@
-import fs from 'fs';
-import util from 'util';
-import ParserLog from '../../Utils/ParserLog';
+import DAO from './MainDAO';
 
 class MainBusiness {
-  async store() {
-    const read = util.promisify(fs.readFile);
-    const file = await read('src/data/games.log', 'utf8');
-    return new ParserLog(file).output;
+  async store({ query }) {
+    const qs = query && query.players && query.players.split(',').map(arg => arg.trim()) || null;
+    return DAO.store(qs);
   }
 }
+
 export default new MainBusiness();

@@ -60,8 +60,14 @@ class App {
         title: 'Quake log parser API',
         version: '1.0.0',
       },
+      documentationPath:'/doc',
       grouping: 'tags',
-      documentationPath:'/doc'
+      tags: [
+        {
+          name: 'Main',
+          description: 'API voltada para consumir log',
+        }
+      ]
     };
     await this.server.register([
       Inert,

@@ -1,9 +1,11 @@
 import Business from './MainBusiness';
 
 class MainCrontroller {
-  store(request, h) {
-
-    return Business.store();
+  store(request) {
+    const {
+      query,
+    } = request;
+    return Business.store({ query });
   }
 }
 

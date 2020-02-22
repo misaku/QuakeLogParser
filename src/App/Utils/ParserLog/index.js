@@ -1,10 +1,10 @@
 class Index {
   constructor(file) {
     this.file = file;
-    this.output = {};
-    this.separateByRound().forEach(({ round, ...data }) => {
-      this.output[`game_${round}`] = data;
-    });
+    this.output =  this.separateByRound().reduce((accum, { round, ...data }) => {
+      accum[`game_${round}`] = data;
+      return accum;
+    }, {});
   }
 
   // METODO QUE MONTA ARRAY POR PARTIDA

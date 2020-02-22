@@ -1,4 +1,5 @@
 import Controller from './MainCrontroller';
+import Schema from './MainSchema';
 
 export default [
   {
@@ -8,10 +9,8 @@ export default [
       handler: Controller.store,
       description: 'Listar',
       notes: 'Retorna rota com todos os registros',
-      tags: ['api'], // ADD THIS TAG
-      validate: {
-
-      }
+      tags: ['api','Main'], // ADD THIS TAG
+      validate: Schema.store()
     },
   }
 ];
