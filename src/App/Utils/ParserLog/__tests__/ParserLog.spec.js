@@ -8,11 +8,11 @@ describe('Unit Test of ParserLog', () => {
     const read = util.promisify(fs.readFile);
     file = await read('src/data/games.log', 'utf8');
   });
-  it('chek if set file', async () => {
+  it('check if set file', async () => {
     const Parser = new ParserLog(file);
     expect(Parser.file).toBe(file);
   });
-  it('chek if separate by round', async () => {
+  it('check if separate by round', async () => {
     const Parser = new ParserLog(file);
     const ByRound = Parser.separateByRound();
     expect(ByRound.length).toBeGreaterThan(1);
@@ -21,7 +21,7 @@ describe('Unit Test of ParserLog', () => {
     expect(ByRound[0]).toHaveProperty('total_kills');
     expect(ByRound[0]).toHaveProperty('players');
   });
-  it('chek if get Players', async () => {
+  it('check if get Players', async () => {
     const data = [
       '\\sv_floodProtect\\1\\sv_maxPing\\0\\sv_minPing\\0\\sv_maxRate\\10000\\sv_minRate\\0\\sv_hostname\\Code Miner Server\\g_gametype\\0\\sv_privateClients\\2\\sv_maxclients\\16\\sv_allowDownload\\0\\bot_minplayers\\0\\dmflags\\0\\fraglimit\\20\\timelimit\\15\\g_maxGameClients\\0\\capturelimit\\8\\version\\ioq3 1.36 linux-x86_64 Apr 12 2009\\protocol\\68\\mapname\\q3dm17\\gamename\\baseq3\\g_needpass\\0',
       '20:38 ClientConnect: 2',

@@ -34,7 +34,7 @@ class MainDAO {
   }
 
   byKey(Key) {
-    return this.data[Key] || {};
+    return this.data[Key] || {}
   }
 
 }
