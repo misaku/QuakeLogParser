@@ -33,6 +33,10 @@ class MainDAO {
     return this.data;
   }
 
+  byKey(Key) {
+    return this.data[Key] || {};
+  }
+
 }
 
 export default new MainDAO();

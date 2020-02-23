@@ -58,6 +58,9 @@ class App {
     const swaggerOptions = {
       info: {
         title: 'Quake log parser API',
+        description:'Quake Log Parser é uma ferramenta tilizada para trasformar o log de ugame' +
+          ' em um objeto, a partir dessa api podemos usar esse obejeto para poder manipulalo e' +
+          ' consumir a api',
         version: '1.0.0',
       },
       documentationPath:'/doc',

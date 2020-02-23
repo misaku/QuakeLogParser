@@ -7,6 +7,13 @@ class MainCrontroller {
     } = request;
     return Business.store({ query });
   }
+
+  byKey(request) {
+    const {
+      params,
+    } = request;
+    return Business.byKey({ params });
+  }
 }
 
 export default new MainCrontroller();

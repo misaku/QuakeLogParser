@@ -12,5 +12,16 @@ export default [
       tags: ['api','Main'], // ADD THIS TAG
       validate: Schema.store()
     },
+  },
+  {
+    method: 'GET',
+    path: '/{key}',
+    options: {
+      handler: Controller.byKey,
+      description: 'Find',
+      notes: 'Retora registro com base na key',
+      tags: ['api','Main'], // ADD THIS TAG
+      validate: Schema.byKey()
+    },
   }
 ];
