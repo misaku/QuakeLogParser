@@ -9,6 +9,7 @@ class Index {
 
   // METODO QUE MONTA ARRAY POR PARTIDA
   separateByRound() {
+
     let lines = this.file.split('------------------------------------------------------------\n');
     // REMOVENDO LINHAS DESNECESSÁRIAS
     lines = lines.filter(line => line.length > 7);
