@@ -29,10 +29,14 @@ QuakeLogParser/
 │   ├── App/
 │   │   │── Modules/
 │   │   │   └── Main/
+│   │   │       │── __tests__/
+│   │   │       │   │── Main.spec.js
+│   │   │       │   └── MainDAO.spec.js
 │   │   │       │── MainBusiness.js
 │   │   │       │── MainController.js
 │   │   │       │── MainDAO.js
-│   │   │       └── MainRoutes.js
+│   │   │       │── MainRoutes.js
+│   │   │       └── MainSchema.js
 │   │   │── Utils/
 │   │   │   └── ParserLog/
 │   │   │       │── __tests__/

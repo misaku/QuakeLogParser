@@ -13,14 +13,6 @@ class App {
       console.log(err);
       process.exit(1);
     });
-
-    // CHAMADA DOS METODOS DE INICIALIZAÇÃO DA APLICAÇÃO
-    this.init();
-    this.start();
-  }
-
-  // CONFIGURAÇÃO DO INICIO DO SERVER
-  init() {
     this.server = Hapi.server({
       port: 3000,
       host: 'localhost',
@@ -49,28 +41,28 @@ class App {
     // AUTO LOAD DE ROTAS
     let Routes = [];
     getRoutesFilesFromDirname(path.join(__dirname, './Modules')).forEach(fileName => {
-      Routes = [...Routes,...(require(fileName).default)];
+      Routes = [...Routes, ...(require(fileName).default)];
     });
-    this.server.route(Routes)
+    this.server.route(Routes);
   }
 
   async swaggerConfig() {
     const swaggerOptions = {
       info: {
         title: 'Quake log parser API',
-        description:'Quake Log Parser é uma ferramenta tilizada para trasformar o log de ugame' +
+        description: 'Quake Log Parser é uma ferramenta tilizada para trasformar o log de ugame' +
           ' em um objeto, a partir dessa api podemos usar esse obejeto para poder manipulalo e' +
           ' consumir a api',
         version: '1.0.0',
       },
-      documentationPath:'/doc',
+      documentationPath: '/doc',
       grouping: 'tags',
       tags: [
         {
           name: 'Main',
           description: 'API voltada para consumir log',
-        }
-      ]
+        },
+      ],
     };
     await this.server.register([
       Inert,
@@ -93,8 +85,10 @@ class App {
       this.routes();
       await this.server.start();
       console.log('Server running on %s', this.server.info.uri);
+      return this.server;
     } catch (err) {
       console.log(err);
+      return null;
     }
   }
 }
