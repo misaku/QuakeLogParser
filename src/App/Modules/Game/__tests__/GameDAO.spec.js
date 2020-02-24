@@ -1,9 +1,9 @@
 import fs from 'fs';
 import util from 'util';
 import ParserLog from '../../../Utils/ParserLog';
-import DAO from '../MainDAO';
+import DAO from '../GameDAO';
 
-describe('test class DAO of Main', () => {
+describe('test class DAO of Game', () => {
   beforeAll(async (done) => {
     const read = util.promisify(fs.readFile);
     const file = await read('src/data/games.log', 'utf8');

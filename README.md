@@ -14,9 +14,9 @@ yarn:
 
 | TYPE | PATH | ARGS | QUERY | PARAMS | DESCRIÇÃO |
 |------|------|------|-------|--------|-----------|
-|GET| / | - | - | - | lista todos objetos |
-|GET| /?players= | - | players: `joão,josé` | - | Filtra por players |
-|GET| /:key | KeyGame | - | - | Seleciona jogo especifico |
+|GET| /games | - | - | - | lista todos objetos |
+|GET| /games?players= | - | players: `joão,josé` | - | Filtra por players |
+|GET| /games/:key | KeyGame | - | - | Seleciona jogo especifico |
 | - | /doc | - | - | - | Documentação swagger da aplicação |
 
 ## Estrutura do projeto
@@ -28,15 +28,15 @@ QuakeLogParser/
 ├── src/
 │   ├── App/
 │   │   │── Modules/
-│   │   │   └── Main/
+│   │   │   └── Game/
 │   │   │       │── __tests__/
-│   │   │       │   │── Main.spec.js
-│   │   │       │   └── MainDAO.spec.js
-│   │   │       │── MainBusiness.js
-│   │   │       │── MainController.js
-│   │   │       │── MainDAO.js
-│   │   │       │── MainRoutes.js
-│   │   │       └── MainSchema.js
+│   │   │       │   │── Game.spec.js
+│   │   │       │   └── GameDAO.spec.js
+│   │   │       │── GameBusiness.js
+│   │   │       │── GameController.js
+│   │   │       │── GameDAO.js
+│   │   │       │── GameRoutes.js
+│   │   │       └── GameSchema.js
 │   │   │── Utils/
 │   │   │   └── ParserLog/
 │   │   │       │── __tests__/

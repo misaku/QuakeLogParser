@@ -1,26 +1,26 @@
-import Controller from './MainCrontroller';
-import Schema from './MainSchema';
+import Controller from './GameCrontroller';
+import Schema from './GameSchema';
 
 export default [
   {
     method: 'GET',
-    path: '/',
+    path: '/games',
     options: {
       handler: Controller.store,
       description: 'Listar',
       notes: 'Retorna rota com todos os registros',
-      tags: ['api','Main'], // ADD THIS TAG
+      tags: ['api','Game'], // ADD THIS TAG
       validate: Schema.store()
     },
   },
   {
     method: 'GET',
-    path: '/{key}',
+    path: '/games/{key}',
     options: {
       handler: Controller.byKey,
       description: 'Find',
       notes: 'Retora registro com base na key',
-      tags: ['api','Main'], // ADD THIS TAG
+      tags: ['api','Game'], // ADD THIS TAG
       validate: Schema.byKey()
     },
   }

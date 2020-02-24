@@ -1,6 +1,6 @@
-import Business from './MainBusiness';
+import Business from './GameBusiness';
 
-class MainCrontroller {
+class GameCrontroller {
   store(request) {
     const {
       query,
@@ -16,4 +16,4 @@ class MainCrontroller {
   }
 }
 
-export default new MainCrontroller();
+export default new GameCrontroller();

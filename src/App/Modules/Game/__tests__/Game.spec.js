@@ -1,6 +1,6 @@
 import App from '../../../index';
 
-describe('test Module Main', () => {
+describe('test Module Game', () => {
   let server;
 
   beforeAll(async (done) => {
@@ -26,7 +26,7 @@ describe('test Module Main', () => {
         it('no args', async () => {
           const options = {
             method: 'GET',
-            url: '/',
+            url: '/games',
           };
           const data = await server.inject(options);
           expect(data.statusCode).toBe(200);
@@ -37,7 +37,7 @@ describe('test Module Main', () => {
           it('invalid', async () => {
             const options = {
               method: 'GET',
-              url: '/?players=asdas',
+              url: '/games?players=asdas',
             };
             const data = await server.inject(options);
             expect(data.statusCode).toBe(200);
@@ -46,7 +46,7 @@ describe('test Module Main', () => {
           it('valid', async () => {
             const options = {
               method: 'GET',
-              url: '/?players=Isgalamido,Mocinha',
+              url: '/games?players=Isgalamido,Mocinha',
             };
             const data = await server.inject(options);
             expect(data.statusCode).toBe(200);
@@ -59,7 +59,7 @@ describe('test Module Main', () => {
         it('invalid', async () => {
           const options = {
             method: 'GET',
-            url: '/dasdas',
+            url: '/games/dasdas',
           };
           const data = await server.inject(options);
           expect(data.statusCode).toBe(200);
@@ -68,7 +68,7 @@ describe('test Module Main', () => {
         it('valid', async () => {
           const options = {
             method: 'GET',
-            url: '/game_2',
+            url: '/games/game_2',
           };
           const data = await server.inject(options);
           expect(data.statusCode).toBe(200);

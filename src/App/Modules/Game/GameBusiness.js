@@ -1,6 +1,6 @@
-import DAO from './MainDAO';
+import DAO from './GameDAO';
 
-class MainBusiness {
+class GameBusiness {
   async store({ query }) {
     const qs = query && query.players && query.players.split(',').map(arg => arg.trim()) || null;
     return DAO.store(qs);
@@ -11,4 +11,4 @@ class MainBusiness {
   }
 }
 
-export default new MainBusiness();
+export default new GameBusiness();

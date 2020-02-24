@@ -59,7 +59,7 @@ class App {
       grouping: 'tags',
       tags: [
         {
-          name: 'Main',
+          name: 'Game',
           description: 'API voltada para consumir log',
         },
       ],

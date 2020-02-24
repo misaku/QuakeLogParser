@@ -2,7 +2,7 @@ import fs from 'fs';
 import util from 'util';
 import ParserLog from '../../Utils/ParserLog';
 
-class MainDAO {
+class GameDAO {
   constructor() {
     this.initData();
   }
@@ -39,4 +39,4 @@ class MainDAO {
 
 }
 
-export default new MainDAO();
+export default new GameDAO();

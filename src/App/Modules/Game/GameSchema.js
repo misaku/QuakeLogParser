@@ -1,6 +1,6 @@
 import Joi from '@hapi/joi';
 
-class MainSchema {
+class GameSchema {
   static store() {
     return {
       query: Joi.object({
@@ -23,4 +23,4 @@ class MainSchema {
     };
   }
 }
-export default MainSchema;
+export default GameSchema;
