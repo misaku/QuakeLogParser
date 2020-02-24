@@ -1,3 +1,4 @@
-import start from './App';
+import App from './App';
 
-start();
+const server = new App();
+server.start();
