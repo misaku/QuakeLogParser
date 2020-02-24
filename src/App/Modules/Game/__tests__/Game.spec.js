@@ -1,26 +1,46 @@
+import fs from 'fs';
 import JWT from 'jsonwebtoken';
-import start from '../../../index';
+import util from 'util';
+import ParserLog from '../../../Utils/ParserLog';
+import App from '../../../index';
+import GameDAO from '../GameDAO';
 
 const token = JWT.sign({
   id: 1,
   name: 'LuizaLabs',
 }, 'QuakeLogParser-LuizaLabs');
+
 let server;
+const initData = async () => {
+  const read = util.promisify(fs.readFile);
+  const file = await read('src/data/games.log', 'utf8');
+  return new ParserLog(file).output;
+};
+
 beforeAll(async (done) => {
-  server = await start();
+  const FactoryServer = new App();
+  await FactoryServer.init();
+  server = FactoryServer.server;
+  const myData = jest.spyOn(GameDAO, 'initData');
+  myData.mockReturnValue(await initData());
   done();
-});
+}, 30000);
+
 
 afterAll(async (done) => {
   if (server && server.stop)
-    await server.stop({timeout :  0 });
+    await server.stop({ timeout: 0 });
+  jest.restoreAllMocks();
   done();
 });
 
+
 describe('test Module Game', () => {
+
   describe('route list path /', () => {
     describe('401 not authorizad', () => {
       it('no param', async () => {
+
         const options = {
           method: 'GET',
           url: '/games',

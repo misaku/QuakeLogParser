@@ -39,6 +39,8 @@ class MainApp {
     // ESPAÇO USADO PARA FUTURAS CONFIGURAÇÕES POS REGISTRO DE ROTAS
   }
 
+  // METODO USADO PARA INICIALIZAR O SISTEMA SEM ALOAÇÃO DE UMA PORTA, GERALMENTE SERÁ USADO
+  // PARA FAZER TESTES NA APALIAÇÃO
   async init() {
     await this.preRegisterPlugins();
     await this.registerPlugins();

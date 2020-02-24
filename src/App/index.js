@@ -6,6 +6,7 @@ import MainApp from './MainApp';
 import { autenticateConfig, swaggerConfig } from './AppConfig';
 
 class App extends MainApp {
+
   async registerPlugins() {
     super.registerPlugins();
     await this.server.register([
@@ -38,6 +39,7 @@ class App extends MainApp {
         true,
       );
     };
+
     // AUTO LOAD DE ROTAS
     let Routes = [];
     getRoutesFilesFromDirname(path.join(__dirname, './Modules')).forEach(fileName => {

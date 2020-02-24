@@ -1,10 +1,12 @@
-import { init } from '../../../index';
+import App from '../../../index';
 
 let server;
 beforeAll(async (done) => {
-  server = await init();
+  const FactoryServer = new App();
+  await FactoryServer.init();
+  server = FactoryServer.server;
   done();
-});
+},30000);
 
 afterAll(async (done) => {
   if(server&&server.stop)

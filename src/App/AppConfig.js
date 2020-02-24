@@ -2,6 +2,7 @@ import Inert from '@hapi/inert';
 import Vision from '@hapi/vision';
 import HapiSwagger from 'hapi-swagger';
 
+// CONFIRGURAÇÃO DO SWAGGER
 export const swaggerConfig = () => {
   const swaggerOptions = {
     info: {
@@ -41,6 +42,7 @@ export const swaggerConfig = () => {
   ];
 };
 
+// CONFIGURAÇÃO DO PLUGIN DE AUTENTICAÇÃO
 export const autenticateConfig = (server) => {
   const people = {
     1: {
