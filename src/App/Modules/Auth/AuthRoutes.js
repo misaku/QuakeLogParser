@@ -1,17 +1,17 @@
-import Controller from './HealthCrontroller';
+import Controller from './AuthCrontroller';
 
 export default [
   {
     method: 'GET',
-    path: '/',
+    path: '/auth/token',
     options: {
       auth: {
         mode:'try'
       },
       handler: Controller.store,
       description: 'Listar',
-      notes: 'Retorna status do servidor',
-      tags: ['api','Health'], // ADD THIS TAG
+      notes: 'Retorna Token',
+      tags: ['api','Auth'], // ADD THIS TAG
     },
   },
 ];

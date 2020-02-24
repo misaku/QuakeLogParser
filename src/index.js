@@ -1,4 +1,3 @@
-import App from './App';
+import start from './App';
 
-App.start();
-
+start();

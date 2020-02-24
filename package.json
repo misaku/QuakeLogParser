@@ -17,7 +17,9 @@
     "@hapi/inert": "^6.0.1",
     "@hapi/joi": "^17.1.0",
     "@hapi/vision": "^6.0.0",
+    "hapi-auth-jwt2": "^9.0.1",
     "hapi-swagger": "^12.1.0",
+    "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.15"
   },
   "devDependencies": {

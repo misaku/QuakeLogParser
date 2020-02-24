@@ -6,6 +6,9 @@ export default [
     method: 'GET',
     path: '/games',
     options: {
+      auth: {
+        mode:'required'
+      } ,
       handler: Controller.store,
       description: 'Listar',
       notes: 'Retorna rota com todos os registros',
@@ -17,6 +20,9 @@ export default [
     method: 'GET',
     path: '/games/{key}',
     options: {
+      auth: {
+        mode:'required'
+      } ,
       handler: Controller.byKey,
       description: 'Find',
       notes: 'Retora registro com base na key',
