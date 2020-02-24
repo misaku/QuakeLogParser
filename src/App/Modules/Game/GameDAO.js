@@ -19,8 +19,9 @@ class GameDAO {
       return newData.filter(arr => {
         const line = arr[1];
         let cond = true;
+        const players = line.players.map(p=>p.toLowerCase());
         args.forEach(player => {
-          if (!line.players.includes(player))
+          if (!players.includes(player.toLowerCase()))
             cond = false;
         });
         return cond;
