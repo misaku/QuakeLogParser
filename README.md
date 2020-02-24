@@ -14,11 +14,21 @@ yarn:
 
 | TYPE | PATH | ARGS | QUERY | PARAMS | DESCRIÇÃO |
 |------|------|------|-------|--------|-----------|
+|GET| / | - | - | - | Retorna status do servidor |
+|GET| /auth/token | - | - | - | retorna token da aplicação |
 |GET| /games | - | - | - | lista todos objetos |
 |GET| /games?players= | - | players: `joão,josé` | - | Filtra por players |
 |GET| /games/:key | KeyGame | - | - | Seleciona jogo especifico |
 | - | /doc | - | - | - | Documentação swagger da aplicação |
 
+## Como testar
+### Via swagger
+1. Entrar na tora `/doc`
+2. Acessar todos os metodos, somente o de Auth e o de Health Funcionará sem autenticação
+3. Pegar token e adicionar no campo authorize que está no canto superior direito
+4. testar rotas de game
+### Via Cliente
+Repetir os passos de 2 e 4 no cliente escolgido, no caso passo 3 colocar autenticação no cliente escolhido
 ## Estrutura do projeto
 A estrutura do projeto foi pensada para trabalhar com modularização de componentes.
 
@@ -28,21 +38,35 @@ QuakeLogParser/
 ├── src/
 │   ├── App/
 │   │   │── Modules/
-│   │   │   └── Game/
+│   │   │   │── Auth/
+│   │   │   │   │── __tests__/
+│   │   │   │   │   └── Auth.spec.js
+│   │   │   │   │── AuthBusiness.js
+│   │   │   │   │── AuthController.js
+│   │   │   │   └── AuthRoutes.js
+│   │   │   │── Game/
+│   │   │   │   │── __tests__/
+│   │   │   │   │   │── Game.spec.js
+│   │   │   │   │   └── GameDAO.spec.js
+│   │   │   │   │── GameBusiness.js
+│   │   │   │   │── GameController.js
+│   │   │   │   │── GameDAO.js
+│   │   │   │   │── GameRoutes.js
+│   │   │   │   └── GameSchema.js
+│   │   │   └── Health/
 │   │   │       │── __tests__/
-│   │   │       │   │── Game.spec.js
-│   │   │       │   └── GameDAO.spec.js
-│   │   │       │── GameBusiness.js
-│   │   │       │── GameController.js
-│   │   │       │── GameDAO.js
-│   │   │       │── GameRoutes.js
-│   │   │       └── GameSchema.js
+│   │   │       │   └── Health.spec.js
+│   │   │       │── HealthBusiness.js
+│   │   │       │── HealthController.js
+│   │   │       └── HealthRoutes.js
 │   │   │── Utils/
 │   │   │   └── ParserLog/
 │   │   │       │── __tests__/
 │   │   │       │   └── ParserLog.spec.js
 │   │   │       └── index.js
-│   │   └── index.js
+│   │   │── AppConfig.js
+│   │   │── index.js
+│   │   └── MainApp.js
 │   ├── data/
 │   │   └── game.log
 │   └── index.js
