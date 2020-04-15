@@ -24,7 +24,14 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm install
-    - run: npm run test
+    - uses: actions/checkout@master
+    - name: Install
+      uses: CultureHQ/actions-yarn@master
+      with:
+        args: install
+    - name: Test
+      uses: CultureHQ/actions-yarn@master
+      with:
+        args: test
       env:
         CI: true
